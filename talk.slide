@@ -1,0 +1,436 @@
+Go: Newbie Night!
+20 Sep 2017
+
+Jud White
+@judson_white
+https://github.com/judwhite
+
+* Slides
+
+- [[https://github.com/judwhite/talks-goatx201709]]
+
+.image images/koda_eda.jpg 470 _
+
+.caption _My_dogs:_Koda_and_Eda_
+
+* Who am I?
+
+- Jud White
+- [[https://github.com/judwhite]]
+- C and C++ a long time ago, C# for 16 years, Gopher for 3.5 years
+- Dell since 2014
+- [[http://nsq.io/][NSQ]] contributor (distributed message queue)
+- Likes to code; doesn't like phone calls in the middle of the night
+
+* Stage 7 Gopher...
+
+.image images/ten_stages.png 510 _
+
+* This Talk
+
+- What's Go good at? Who's using it?
+- Language Features, Concurrency
+- Resources & Community
+- Tools, Race Detector
+- Write an HTTP Server
+
+* What's Go good at?
+
+Sweet spot
+
+- Designed with servers and distributed systems in mind
+- Reliable and efficient software
+- Replace complex bash scripts
+- Anything you'd use any other GC'd language for
+
+Also...
+
+- [[https://github.com/golang/go/wiki/Mobile][Mobile]], Desktop (Qt, QML, GTK)
+
+Why not Rust?!
+
+- [[https://dave.cheney.net/2015/07/02/why-go-and-rust-are-not-competitors][They're not competitors]], use it if you want to!
+
+* Why Go?
+
+- Small language - 25 keywords
+- It's fun and easy to learn
+- Fast and low memory footprint - save money on your AWS bill
+- Statically [[https://www.destroyallsoftware.com/talks/useing-youre-types-good][typed]], Garbage collected
+- Great community, easy to get help
+
+* Who's using Go?
+
+Companies in Austin
+
+- GE, Electronic Arts, Dropbox, Cisco, CloudFlare
+- Umbel, iNGAGED, Conservable, Return Path, Twitch
+- Pilosa, WP Engine
+
+Other companies
+
+- Google, Netflix, Facebook, Atlassian, Soundcloud, Uber
+- Comcast, DigitalOcean, eBay, IBM, Mozilla, Rackspace
+- Riot Games, SpaceX, Square, Tumblr, Twitter
+
+Many more
+
+- [[https://github.com/golang/go/wiki/GoUsers]]
+
+* What projects are using Go?
+
+- [[https://www.docker.com/][Docker]] - container
+- [[https://coreos.com/rkt/][rkt]] - container (CoreOS)
+- [[http://kubernetes.io/][Kubernetes]] - cluster management (Google)
+- [[https://prometheus.io/][Prometheus]] - monitoring (SoundCloud)
+- [[https://coreos.com/etcd/][etcd]] - key value store for cluster config (CoreOS)
+- [[https://www.consul.io/][Consul]] - service discovery, key value store (HashiCorp)
+- [[http://nsq.io/][NSQ]] - message queue
+- [[https://www.influxdata.com/][InfluxDB]] - time-series database
+- [[http://grafana.org/][Grafana]] - visualize time-series data
+- [[https://gohugo.io/][Hugo]] - static site generator
+- [[https://github.com/Netflix/chaosmonkey][Chaos Monkey]] - randomly terminate VMs (Netflix)
+
+* Language Features
+
+* Hello, world!
+
+.play 01-hello-world/hello.go
+
+* Hello, world!
+
+.play -numbers 01-hello-world/hello.go
+
+Anatomy:
+
+  package main
+ 
+  import "fmt"
+ 
+  func main() {
+ 
+  	fmt.Println("Hello, world!")
+ 
+  }
+
+* Language Features
+
+- Cross platform, natively compiled
+- Produces a single executable
+- Statically typed
+- Garbage collected
+
+* Language Features
+
+- Concurrency
+- Composable types
+- Interfaces satisfied implicitly
+- Capital letter = exported
+- Return multiple values
+
+* Go's missing features
+
+- Generics
+- Overloads
+- Implicit type conversions
+
+* Standard Library
+
+- Networking
+- Crypto
+- Compression
+- Databases
+- Images
+- Text/HTML templating
+- Testing / Code coverage
+
+Community packages
+
+- [[https://github.com/avelino/awesome-go]] - Curated list of packages
+- [[https://godoc.org]]
+
+* Resources & Community
+
+* Book: The Go Programming Language
+
+.image images/gopl_cover.png 450 _
+
+.caption _The_Go_Programming_Language_, Donovan & Kernighan - [[http://gopl.io]]
+
+* Sites
+
+- [[https://golang.org]]
+- A Tour of Go: [[http://tour.golang.org]]
+- Effective Go: [[https://golang.org/doc/effective_go.html]]
+- Go By Example: [[https://gobyexample.com]]
+- [[golang.org/doc/#articles]]
+- [[https://blog.golang.org]]
+- [[https://github.com/golang/go/wiki]]
+- _When_Googling,_use_ `"golang"`
+
+* Community
+
+Online
+
+- Slack: [[https://gophersinvite.herokuapp.com]]
+- IRC: `irc.freenode.net` `#go-nuts`
+- Google Groups: [[https://groups.google.com/forum/#!forum/golang-nuts][golang-nuts]]
+
+Meetups
+
+- [[http://www.meetup.com/atxgolang][Austin Go Language User Group]]
+- [[http://www.meetup.com/North-Austin-Golang-Meetup][North Austin Golang Meetup]]
+- [[https://gophercon.com][GopherCon]] - July, Denver, CO
+
+Weekly Podcast
+
+- [[http://gotime.fm]]
+
+* Tools
+
+* Download Go
+
+- [[https://golang.org/dl]]
+
+Cross-platform IDEs
+
+- [[https://jetbrains.com/go][JetBrains' Gogland]] * My favorite
+- [[https://code.visualstudio.com/][VS Code]] /  [[https://github.com/Microsoft/vscode-go][vscode-go plugin]]
+- [[https://www.sublimetext.com/][Sublime Text]] / [[https://github.com/golang/sublime-build][Golang Build]] package
+- [[https://github.com/visualfc/liteide][LiteIDE]] ([[https://gist.github.com/judwhite/e2c63679e0876c01d246][tips]])
+- Vim/Neovim: [[https://github.com/fatih/vim-go][vim-go]] (nvim: deoplete + deoplete-go)
+- Emacs: [[https://github.com/dominikh/go-mode.el][go-model.el]]
+
+* The Go Playground
+
+- Share code, run it in the browser
+- [[http://play.golang.org]]
+- [[https://chrome.google.com/webstore/detail/better-go-playground/odfhkelcmblecfdnboahphiafolojmpl][Better Go Playground]] - Chrome Extension
+
+* go fmt
+
+- Tabs? Spaces? go fmt
+- Format code on save
+- Add it to your CI server (see [[https://gist.githubusercontent.com/judwhite/c92e58607e483811a7eb/raw/b18c0d03cb995f7aad68e73616b6098cb19b7886/test.sh][test.sh]])
+
+Example:
+
+- [[http://play.golang.org/p/LJyK8RT3lg]] (click "Format")
+
+* go get
+
+- See something on GitHub/Bitbucket? go get it
+- Built into IDEs
+
+Example:
+
+  go get -u github.com/sirupsen/logrus
+
+* $GOPATH
+
+- **Go*source*lives*best*under*$GOPATH*
+- Example: **~/go/src/github.com/name/repo*
+
+  export GOPATH=$HOME/go
+
+Include bin directories in `PATH`:
+
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+* Go Tools
+
+- go build
+- - has flags to set variables at build time, like commit hash, version, build date
+- go run
+- go test / go test --race -cpu 1,2,4
+- go test -run none -bench .
+- go tool pprof - profile CPU, memory, garbage, contention
+- go vet
+
+* Other Tools
+
+- [[https://github.com/kardianos/govendor][govendor]] - vendor dependencies - repeatable builds, don't get leftpad'd
+- [[https://github.com/golang/lint][golint]] - checks code based on [[https://github.com/golang/go/wiki/CodeReviewComments][Go Code Review Comments]]
+- [[https://github.com/kisielk/errcheck][errcheck]] - checks your checked errors
+- [[https://github.com/dominikh/go-tools/tree/master/cmd/staticcheck][staticcheck]] - finds all my bugs
+- [[https://github.com/alecthomas/gometalinter][gometalinter]] - combines popular static analysis tools (but not always up-to-date)
+- [[https://goreportcard.com]] - swag badge for your repo ([[https://goreportcard.com/report/github.com/judwhite/go-svc][example]])
+
+* Packages I almost always use
+
+- [[https://github.com/sirupsen/logrus]] - Structured, leveled logging
+- [[https://github.com/gorilla/mux]] - HTTP router
+- [[https://github.com/prometheus/client_golang]] - [[https://prometheus.io/][Prometheus]] client (metrics)
+- [[https://github.com/pkg/errors]] - Adds stack traces to errors
+- [[https://golang.org/pkg/flag]] - Easy typed flags for the command line
+- [[https://github.com/jteeuwen/go-bindata]] - Embed binary data (web assets, for example) in a Go binary
+- [[https://github.com/judwhite/go-svc]] - Run as a Windows service, plays well with Linux (disclosure: one of mine)
+
+* Testing
+
+* Code Coverage
+
+ go test -cover -coverprofile=cover.out
+ go tool cover -html=cover.out
+ 
+.image images/coverage.png 325 _
+
+* Profiling (pprof web)
+
+.image images/cpu-profile.png 530 _
+
+.caption _See_ [[http://go-talks.appspot.com/github.com/judwhite/talks-goperf/talk.slide#15]] _for_more_info_
+
+* Flame Graph with go-torch and FlameGraph
+
+.image images/flamegraph.png _ 1000
+
+[[https://github.com/uber/go-torch]]
+[[https://github.com/brendangregg/FlameGraph]]
+
+* Benchmarking / benchviz
+
+.image images/benchviz-complete.png 550 _
+
+* Race Detector
+
+* A Race Condition
+
+.play -numbers 02-race-detector/01-race-condition/main.go
+
+* go test -race
+
+  ==================
+  WARNING: DATA RACE
+  Read by goroutine 8:
+    _/C_/datarace.main.func2()
+        C:/datarace/main.go:19 +0x41
+
+  Previous write by goroutine 7:
+    _/C_/datarace.main.func1()
+        C:/datarace/main.go:13 +0x4b
+
+  Goroutine 8 (running) created at:
+    _/C_/datarace.main()
+        C:/datarace/main.go:21 +0x92
+    _/C_/datarace.TestMain()
+        C:/datarace/main_test.go:8 +0x2c
+    testing.tRunner()
+        C:/Go/src/testing/testing.go:473 +0xe3
+
+  Goroutine 7 (running) created at:
+    _/C_/datarace.main()
+        C:/datarace/main.go:15 +0x70
+    _/C_/datarace.TestMain()
+        C:/datarace/main_test.go:8 +0x2c
+    testing.tRunner()
+
+* Data Race Fixed with sync/atomic
+
+.play -numbers 02-race-detector/02-race-condition-fixed-atomic/main.go
+
+* Data Race Fixed with Channels
+
+.play -numbers 02-race-detector/03-race-condition-fixed-chans/main.go
+
+* My race condition only happens in Production!
+
+  go build -race
+
+- Caution: Performance hit
+
+* Read more
+
+Race Detector
+
+- [[https://golang.org/doc/articles/race_detector.html]]
+- [[http://blog.golang.org/race-detector]]
+
+More on Concurrency
+
+- [[https://tour.golang.org/concurrency]]
+- Go Concurrency Patterns - [[http://www.youtube.com/watch?v=f6kdp27TYZs][YouTube]] (51m) - [[https://talks.golang.org/2012/concurrency.slide][Slides]]
+- Advanced Go Concurrency Patterns - [[https://www.youtube.com/watch?v=QDDwwePbDtw][YouTube]] (34m) - [[https://talks.golang.org/2013/advconc.slide][Slides]]
+
+* Write an HTTP Server
+
+* Simple HTTP Server
+
+- [[http://localhost:7676/hello-world]]
+
+.play 03-http/01-http-helloworld/main.go
+
+* Simple HTTP Server - Routes & Regex
+
+- [[http://localhost:7676/api/v1/echo/hello!]]
+
+ open ./03-http/02-http-regex-routes
+
+* HTTP Server using Gorilla Mux
+
+- [[http://localhost:7676/api/v1/echo/hello!]]
+
+ open ./03-http/03-http-gorilla
+
+* Middleware - Separating Concerns
+
+- [[http://localhost:7676/api/v1/echo/hello]]
+- [[http://localhost:7676/api/v1/echo/hello!]]
+
+ open ./03-http/04-http-gorilla-json
+
+* HTTP API Testing
+
+ open ./03-http/04-http-gorilla-json/main_test.go
+
+* Routers
+
+- Standard Library: net/http, regex
+- [[http://www.gorillatoolkit.org/][Gorilla web toolkit]]
+- many... too many.
+
+* 
+
+Databases:
+
+- [[https://golang.org/pkg/database/sql/#pkg-examples]]
+- [[http://go-database-sql.org/]]
+- [[https://github.com/golang/go/wiki/SQLDrivers]]
+
+ORMs:
+
+- [[https://github.com/go-gorp/gorp]]
+- [[https://github.com/jinzhu/gorm]]
+
+Redis:
+
+- [[https://github.com/garyburd/redigo]]
+
+NSQ:
+
+- [[http://nsq.io]]
+
+* Other topics (cont'd)
+
+Web API Generation:
+
+- [[https://github.com/go-swagger/go-swagger]]
+- [[http://goa.design]]
+
+Testing:
+
+- [[https://talks.golang.org/2014/testing.slide]] (httptest, code coverage, table driven tests)
+
+Structured Logging:
+
+- [[https://github.com/sirupsen/logrus]]
+
+ time="2016-10-26T13:16:58-05:00" level=info msg=OK bytes_sent=261 http_status=200 method=GET remote_addr="10.164.22.13:61492" time_taken=0 uri="/api/v1/GlobalizationContext/RC1359112" 
+ time="2016-10-26T13:16:58-05:00" level=info msg=OK bytes_sent=261 http_status=200 method=GET remote_addr="10.164.22.13:61493" time_taken=0 uri="/api/v1/GlobalizationContext/RC1364328" 
+ time="2016-10-26T13:16:58-05:00" level=info msg=OK bytes_sent=267 http_status=200 method=GET remote_addr="10.164.22.13:61494" time_taken=0 uri="/api/v1/GlobalizationContext/RC1364697" 
+
+* My other talks
+
+- [[https://github.com/judwhite/talks-edgeatx][Go: A Practical Start Guide]] (more focus on concurrency)
+- [[https://github.com/judwhite/talks-goperf][Performance Tuning in Go]]
+- [[https://github.com/judwhite/talks-gofuzz][Fuzz Testing with Go]]
